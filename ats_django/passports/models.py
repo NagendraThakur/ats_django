@@ -4,7 +4,7 @@ from candidates.models import Candidate
 class Passport(models.Model):
     candidate = models.ForeignKey(
         Candidate,
-        on_delete=models.CASCADE,  # Delete passport if candidate is deleted
+        on_delete=models.CASCADE,
         null=True,
         blank=True,
         related_name='passports'

@@ -6,7 +6,7 @@ from passports.models import Passport
 from .models import Candidate
 
 # Inline for Applications to be displayed inside Candidate's admin form
-class ApplicationInline(admin.TabularInline):  # Or admin.StackedInline for a different layout
+class ApplicationInline(admin.TabularInline):
     model = Application
     extra = 1  # Number of empty forms to display when editing Candidate
 
@@ -23,7 +23,7 @@ class NoteInline(admin.TabularInline):
 # Inline for Passports
 class PassportInline(admin.TabularInline):
     model = Passport
-    extra = 1 # Set to 0 to avoid displaying additional empty forms
+    extra = 1
     can_delete = False  # Disable the option to delete passports from the inline form
 
 
@@ -35,5 +35,5 @@ class CandidateAdmin(admin.ModelAdmin):
     inlines = [ApplicationInline, InterviewScheduleInline, NoteInline, PassportInline]
 
 
-# Register the Candidate model with the custom admin interface
+
 admin.site.register(Candidate, CandidateAdmin)
